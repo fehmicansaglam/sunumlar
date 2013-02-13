@@ -1,0 +1,4 @@
+for dosya in `ls *.txt`
+do
+	asciidoc $dosya
+done

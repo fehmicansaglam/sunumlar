@@ -1,0 +1,189 @@
+Reactive Web Programlama
+========================
+:toc2:
+:icons:
+:iconsdir: /usr/local/etc/asciidoc/images/icons/
+:data-uri:
+:pygments:
+:encoding: UTF-8
+:numbered:
+
+.Kaynakça
+
+* http://en.wikipedia.org/wiki/C10k_problem[C10k problem]
+* http://www.kegel.com/c10k.html[The C10K problem]
+* http://zef.me/883/the-share-nothing-architecture[The Share-Nothing Architecture]
+* http://en.wikipedia.org/wiki/Shared_nothing_architecture[Shared nothing architecture]
+* http://sadache.tumblr.com/post/42351000773/async-reactive-nonblocking-threads-futures-executioncont[Playframework: Async, Reactive, Threads, Futures, ExecutionContexts]
+* http://doc.akka.io/docs/akka/snapshot/scala/futures.html[Futures (Scala)]
+
+
+== Ölçeklenebilirlik
+
+=== C1OK
+C10K = Concurrent ten thousand connections
+
+CAUTION: Uygulamanıza aynı anda onbinlerce istek geldiğinde ne olacak?
+
+==== Long polling
+Long polling is a variation of the traditional polling technique and allows emulation of an information push from a server to a client.
+
+=== Yatay ve dikey ölçekleme
+Gereksinimlerinize ya da imkanlarınıza göre sisteminizi farklı şekillerde ölçekleyebilirsiniz.
+
+==== Yatay ölçekleme (Scala out/Scale down)
+Add more nodes to a system, such as adding a new computer to a distributed software application.
+
+==== Dikey (Scale up)
+Add resources to a single node in a system, typically involving the addition of CPUs or memory to a single computer.
+
+==== Share nothing
+* Stateful mimarilerin ölçeklenmesi zordur.
+* HTTP protokolü stateless'tır.
+* Stateless web mimarisinde state cookie içinde saklanır.
+* Sunucu taraflı state için cache ya da veritabanı kullanılır.
+
+==== Parallelism
+Paralel donanımlar üzerinde programları daha hızlı koşmak.
+
+==== Concurrency
+İş parçacıklarının eş-zamanlı olarak koşmalarını yönetmek.
+
+=== Temel problem
+[source,scala]
+----
+var x = 0
+async { x = x + 1 }
+async { x = x * 2 }
+// muhtemel sonuçlar 0, 1, 2
+----
+
+* Eş-zamanlı iş parçacıklarının paylaşımlı değişken durumlara(mutable shared state) erişmesi rasgeleliğin sebebidir.
+
+----
+non-determinism = paralel işleme + değişken durum
+----
+
+* Rasgele olmayan işleme istiyorsak değişken durumdan(mutable state) sakınmamız gerekli.
+
+==== Senkronizasyon maliyeti
+Eğer mutable state varsa eş zamanlı çalışmanın senkronize edilmesi gerekir. Java’da aşağıdaki senkronizasyon araçları mevcuttur.
+
+* Atomik veri yapıları (AtomicInteger…)
+* Synchronized bloklar
+* CountDownLatch
+* CyclicBarrier
+* Semaphore
+
+*Eğer uygulamanızda mutable state yoksa senkronizasyon gibi bir sorununuz da yoktur.*
+
+[source,java]
+----
+public final class MyImmutableClass { // extend edilemez
+
+  // member değerleri construction anında setlenir
+  private final String myImmutableKey;
+  private final Date myImmutableDate;
+  private final List<String> myImmutableList;
+
+  public MyImmutableClass(String myImmutableKey, Date myImmutableDate,
+      List<String> myImmutableList) {
+    this.myImmutableKey = myImmutableKey;
+    this.myImmutableDate = myImmutableDate;
+    this.myImmutableList = myImmutableList;
+  }
+
+  public String getMyImmutableKey() {
+    return myImmutableKey;
+  }
+
+  public Date getMyImmutableDate() {
+    return new Date(myImmutableDate.getTime()); //defensive copying
+  }
+
+  public List<String> getMyImmutableList() {
+    return Collections.unmodifiableList(myImmutableList);
+  }
+}
+----
+
+
+== Thread
+[source,java]
+----
+public class MyRunnable implements Runnable {
+  public void run(){
+    System.out.println("MyRunnable running");
+  }
+}
+
+Thread thread = new Thread(new MyRunnable());
+thread.start();
+----
+
+=== Sınırsız thread oluşturmanın dezavantajları
+* Thread Lifecycle overhead
+* Resource consumption
+* Stability
+
+
+== Reactive programming
+Programming in a non-blocking style.
+
+=== Nonblocking
+* Tornado(Friendfeed)
+* Netty(NIO client-server framework)
+* nginx
+* node.js
+
+
+=== Futures
+A construct that allows highly composable reactive programming.
+
+[source,java]
+----
+interface Future<V> {
+  boolean cancel(boolean)
+  V get()
+  V get(long, TimeUnit)
+  boolean isCancelled()
+  boolean isDone()
+}
+----
+
+[source,scala]
+----
+val f1 = Future {
+  "Hello" + "World"
+}
+val f2 = f1 map { x ⇒
+  x.length
+}
+f2 foreach println
+----
+
+[source,scala]
+----
+val f1 = ask(actor1, msg1)
+val f2 = ask(actor2, msg2)
+ 
+val f3 = for {
+  a ← f1.mapTo[Int]
+  b ← f2.mapTo[Int]
+  c ← ask(actor3, (a + b)).mapTo[Int]
+} yield c
+ 
+f3 foreach println
+----
+
+
+=== ThreadPool
+[source,java]
+----
+private final ExecutorService executor = Executors
+    .newFixedThreadPool(Runtime.getRuntime().availableProcessors() + 1);
+
+private final CompletionService<Response> completionService = 
+    new ExecutorCompletionService<Response>(executor);
+----
+
