@@ -8,6 +8,11 @@ Reactive Web Programlama
 :encoding: UTF-8
 :numbered:
 
+.Fehmi Can Sağlam
+* http://twitter.com/fehmicansaglam
+* http://github.com/fehmicansaglam
+* http://fehmicansaglam.net
+
 .Kaynakça
 
 * http://en.wikipedia.org/wiki/C10k_problem[C10k problem]
@@ -25,12 +30,15 @@ Use Two-Phase Commit]
 === C1OK
 C10K = Concurrent ten thousand connections
 
-CAUTION: Uygulamanıza aynı anda onbinlerce istek geldiğinde ne olacak?
+==== HTTP
+HTTP functions as a request-response protocol in the client-server computing model.
 
 ==== Long polling
 Long polling is a variation of the traditional polling technique and allows emulation of an information push from a server to a client.
 
-=== Yatay ve dikey ölçekleme
+CAUTION: Uygulamanıza aynı anda onbinlerce istek geldiğinde ne olacak?
+
+=== Ölçekleme
 Gereksinimlerinize ya da imkanlarınıza göre sisteminizi farklı şekillerde ölçekleyebilirsiniz.
 
 ==== Yatay ölçekleme (Scala out/Scale down)
@@ -79,6 +87,7 @@ Eğer mutable state varsa eş zamanlı çalışmanın senkronize edilmesi gereki
 
 *Eğer uygulamanızda mutable state yoksa senkronizasyon gibi bir sorununuz da yoktur.*
 
+.Immutable Java sınıfı örneği
 [source,java]
 ----
 public final class MyImmutableClass { // extend edilemez
@@ -111,6 +120,7 @@ public final class MyImmutableClass { // extend edilemez
 
 
 == Thread
+.Temel thread oluşturma örneği
 [source,java]
 ----
 public class MyRunnable implements Runnable {
@@ -124,9 +134,18 @@ thread.start();
 ----
 
 === Sınırsız thread oluşturmanın dezavantajları
-* Thread Lifecycle overhead
-* Resource consumption
-* Stability
+
+* *Thread Lifecycle overhead*
+
+Thread oluşturma ve öldürme maliyetsiz değildir. Çoğu sunucu uygulamasında olduğu gibi istekler sık ve küçük ise her bir istek için yeni bir thread oluşturmak oldukça yüksek kaynak tüketimine sebep olur.
+
+* *Resource consumption*
+
+Aktif threadler sistem kaynaklarını(özellikle bellek) kullanırlar. Kullanılabilir işlemci sayısından daha fazla thread var ise threadler boş dururlar. Boş duran threadler gereksiz yere bellek kullanırlar. İşlemciler için yarışan çok sayıda thread var ise bu durum ayrıca performans kaybına sebep olabilir.
+
+* *Stability*
+
+Oluşturulabilecek thread sayısı sınırlıdır. Bu sınır stack size gibi parametrelere ve işletim sisteminin sınırlarına bağlıdır. Bu sınıra ulaştığınızda OOM gibi bir yanıt alırsınız. Bu durumu recover etmeye çalışmak risklidir. Bunun yerine uygulamanızı bu sınıra ulaşmayacak şekilde tasarlamanız daha kolaydır.
 
 
 == Reactive programming
@@ -139,6 +158,9 @@ Starbucks order throughputu maximize etmek ister; çünkü daha fazla başarıl�
 image:images/starbucks-async.png[]
 
 === Nonblocking
+Nonblocking is a call that doesn't cause the caller (Thread) to be blocked waiting for a result, but rather provides a mechanism (often associated with callbacks) that allows the caller to schedule an action whenever the result is ready. Non-blocking is often used with IO operation since there is no CPU, thus no threads needed for accomplishing the task. This kind of programming can lead to a spaghetti disaster if not used with appropriate composition constructs.
+
+.Nonblocking server örnekleri
 * Tornado(Friendfeed)
 * Netty(NIO client-server framework)
 * nginx
@@ -184,7 +206,7 @@ f3 foreach println
 ----
 
 
-=== ThreadPool
+=== ThreadPool (ExecutionContext)
 [source,java]
 ----
 private final ExecutorService executor = Executors
@@ -192,5 +214,23 @@ private final ExecutorService executor = Executors
 
 private final CompletionService<Response> completionService = 
     new ExecutorCompletionService<Response>(executor);
+----
+
+[source,scala]
+----
+// An ExecutionContext with a ThreadPool
+// that the same size as the ConnectionPool of our DB
+val dbExecutionContext: ExecutionContext = ... 
+val eventuallySql = Future {
+ /* some sql here */
+}(dbExecutionContext)
+
+// hand the Future to Play
+def getUser = Action {
+  Async {
+    eventuallySql.map( user =>
+      Ok("user is: "+user)) 
+  }
+}
 ----
 
