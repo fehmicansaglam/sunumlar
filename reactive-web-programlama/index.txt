@@ -14,6 +14,8 @@ Reactive Web Programlama
 * http://www.kegel.com/c10k.html[The C10K problem]
 * http://zef.me/883/the-share-nothing-architecture[The Share-Nothing Architecture]
 * http://en.wikipedia.org/wiki/Shared_nothing_architecture[Shared nothing architecture]
+* http://www.eaipatterns.com/docs/IEEE_Software_Design_2PC.pdf[Your Coffee Shop Doesn’t
+Use Two-Phase Commit]
 * http://sadache.tumblr.com/post/42351000773/async-reactive-nonblocking-threads-futures-executioncont[Playframework: Async, Reactive, Threads, Futures, ExecutionContexts]
 * http://doc.akka.io/docs/akka/snapshot/scala/futures.html[Futures (Scala)]
 
@@ -69,7 +71,7 @@ non-determinism = paralel işleme + değişken durum
 ==== Senkronizasyon maliyeti
 Eğer mutable state varsa eş zamanlı çalışmanın senkronize edilmesi gerekir. Java’da aşağıdaki senkronizasyon araçları mevcuttur.
 
-* Atomik veri yapıları (AtomicInteger…)
+* Atomik veri yapıları (AtomicInteger, ...)
 * Synchronized bloklar
 * CountDownLatch
 * CyclicBarrier
@@ -130,12 +132,17 @@ thread.start();
 == Reactive programming
 Programming in a non-blocking style.
 
+=== Asynchronous
+Starbucks order throughputu maximize etmek ister; çünkü daha fazla başarılı order daha fazla gelir anlamına gelir.
+
+.Starbucks asynchronous model 
+image:images/starbucks-async.png[]
+
 === Nonblocking
 * Tornado(Friendfeed)
 * Netty(NIO client-server framework)
 * nginx
 * node.js
-
 
 === Futures
 A construct that allows highly composable reactive programming.
