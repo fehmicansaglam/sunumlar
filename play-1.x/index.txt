@@ -25,6 +25,36 @@ Bağlantılar
 
   http://www.4biryanda.com
 
+Genel Bakış
+-----------
+Play framework karmaşık Kurumsal Java çatılarına temiz bir alternatif olma iddiasıyla ortaya çıkmıştır. Geliştirici verimliliğine odaklanır ve RESTful mimarileri hedef alır. Ayrıca çevik yazılım geliştirme ile tam uyumludur.
+
+Play Framework'ün hedefi Java'yı terk etmeden web uygulama geliştirmeyi kolaylaştırmaktır.
+
+Tarihçe
+-------
+[grid="rows"]
+[options="header"]
+|====================================
+|Sürüm            |Tarih       |Boyut
+|play-1.0.zip     |19 Eki 2009 |41.5M
+|play-1.0.1.zip   |17 Oca 2010 |44.6M
+|play-1.0.2.zip   |06 Nis 2010 |32.8M
+|play-1.0.2.1.zip |16 Nis 2010 |32.8M
+|play-1.0.3.zip   |16 Haz 2010 |32.8M
+|play-1.0.3.1.zip |15 Tem 2010 |32.8M
+|play-1.0.3.2.zip |28 Tem 2010 |32.9M
+|play-1.1.zip     |01 Kas 2010 |48.1M
+|play-1.1.1.zip   |25 Oca 2011 |48.3M
+|play-1.2.zip     |13 Nis 2011 |55.7M
+|play-1.2.1.zip   |02 May 2011 |55.7M
+|play-1.2.2.zip   |05 Tem 2011 |57.6M
+|play-1.0.3.3.zip |23 Ağu 2011 |32.8M
+|play-1.1.2.zip   |23 Ağu 2011 |48.3M
+|play-1.2.3.zip   |24 Ağu 2011 |58.2M
+|play-1.2.4.zip   |02 Ara 2011 |58.1M
+|play-1.2.5.zip   |03 Tem 2012 |61.7M
+|====================================
 
 Durum Bilgisiz(Stateless) Mimari
 --------------------------------
@@ -33,22 +63,21 @@ Durum Bilgisiz(Stateless) Mimari
 - Durum cookie içinde saklanıyor.
 - Durum paylaşımı gerektiğinde Cache ya da DB kullanılıyor.
 
-
 Servlet API Neden Kullanılmıyor?
 --------------------------------
 - Play Framework içerisinde Servlet API kullanılmamasının iki ana nedeni var.
   * Tamamen stateless mimariye sahip olması
   * Kod değişikliklerini otomatik olarak yüklemesi
-- Eğer uygulama tamamen stateless değilse kod değişikliğinden sonra bellek durumunu yeniden oluşturmanın bir yolu yok. 
+- Eğer uygulama tamamen stateless değilse kod değişikliğinden sonra bellek durumunu yeniden oluşturmanın bir yolu yok.
 - İlk sürümler HTTP Session ve Servlet Forwarding gibi mekanizmalar olmaksızın Servlet API kullanıyor ve bir Servlet Container içinde çalışıyordu.
 - Servlet tabanlı bileşenlerin stateless mimariyi kırma olasılığı çok fazla.
 - Servlet API eski moda "her istek için bir thread" yapısını kullanıyor. Günümüzün bolca Ajax ve long polling çağrıları içeren uygulamaları için bu yeterli değil.
 
 Dahili Uygulama Sunucusu
 -------------------------
-- Jboss Netty kullanılıyor.
+- Jboss Netty kullanılıyor. (1.2.5 içinde 3.4.2 var)
 - Netty bir NIO client server framework.
-- NIO Java 1.4 ile geldi. Ölçeklenebilir sunucular için non-blocking I/O özellikleri içeriyor .
+- NIO Java 1.4 ile geldi. Ölçeklenebilir sunucular için non-blocking I/O özellikleri içeriyor.
 
 Temel Proje Yapısı
 ------------------
@@ -57,21 +86,21 @@ Temel Proje Yapısı
 - /app/views
 - /public
 - /conf
-- /lib 
+- /lib
 
 Konfigürasyon
 -------------
   application.mode=dev
   %prod.application.mode=prod
-  
+
   db=fs
   %prod.db=mysql:user:pwd@database_name
-  
+
 Bağımlılık Yönetimi
 -------------------
 Apache Ivy kullanılıyor.
 
-- Resmi Play Framework modülü 
+- Resmi Play Framework modülü
 - Merkezi maven deposundaki kütüphane
 - Farklı maven deposundaki kütüphane
 - Maven deposunda bulunmayan kütüphane
@@ -86,7 +115,7 @@ MVC
 MVC
 ---
 image:images/mvc.png[]
-    
+
 Request Yaşam Döngüsü
 ---------------------
 Play Framework istek/cevap tabanlı olarak çalışır. Tüm HTTP istekleri şu yapıda işlenirler.
@@ -101,19 +130,19 @@ Play Framework istek/cevap tabanlı olarak çalışır. Tüm HTTP istekleri şu 
 Request Yaşam Döngüsü
 ---------------------
 image:images/request.png[]
-    
+
 HTTP Routing
 ------------
-  
+
   GET    /client/{id}             Clients.show
   POST   /client/?                Clients.save
-  
-  /clients/{id}/accounts/{accountId} 
-  
+
+  /clients/{id}/accounts/{accountId}
+
   /clients/{<[0-9]+>id}
-  
+
   /clients/{<[a-z]{4,10}>id}
-    
+
 Controller
 -----------
 [source,java]
@@ -154,7 +183,7 @@ public class Application extends Controller {
     ...
 }
 ----
-    
+
 Template Motoru
 ---------------
 - Varsayılan olarak Groovy tabanlı template motoru kullanılıyor.
@@ -162,12 +191,12 @@ Template Motoru
   Expressions: ${…}
   Actions: @{…} or @@{…}
   Messages: &{…}
-  
+
 - Java extensions
 
   ${new Date(1262350000000).since(false)}
   5 months ago
- 
+
   ${new Date(1262350000000).since(true)}
   Jan 1, 2010
 
@@ -178,13 +207,11 @@ Asenkron İşler
 ----
 @OnApplicationStart
 public class Bootstrap extends Job {
-
-public void doJob() {
-
- Logger.info("Ön tanımlı kullanıcılar oluşturuluyor ...");
-  Fixtures.loadModels("data.yml");
-  ...              
- }
+  public void doJob() {
+    Logger.info("Ön tanımlı kullanıcılar oluşturuluyor ...");
+    Fixtures.loadModels("data.yml");
+    ...
+  }
 }
 ----
 
@@ -192,16 +219,14 @@ Asenkron İşler
 --------------
 * Bakım amaçlı çalıştırılması gereken işler
 [source,java]
----- 
-// Her ayın son günü  
+----
+// Her ayın son günü
 @On("0 15 10 L * ?")
 public class Maintenance extends Job {
-   
- public void doJob() {
-
-  Logger.info("Re-index başlıyor ...");
-  ...
- }   
+  public void doJob() {
+    Logger.info("Re-index başlıyor ...");
+    ...
+  }
 }
 ----
 
@@ -213,40 +238,36 @@ Asenkron İşler
 // Saatte bir kez
 @Every("1h")
 public class WelcomeMail extends Job {
- 
-    public void doJob() {
-
-        List<User> newUsers = User.find("newAccount = true").fetch();
-        for(User user : newUsers) {
-            Notifier.sayWelcome(user);
-        }
+  public void doJob() {
+    List<User> newUsers = User.find("newAccount = true").fetch();
+    for(User user : newUsers) {
+      Notifier.sayWelcome(user);
     }
+  }
 }
 ----
 
 Asenkron İşler
 --------------
-* Transaction yönetimi
+* Manual transaction yönetimi
 [source,java]
-----    
+----
 @OnApplicationStart(async = true)
 @NoTransaction
 public class Bootstrap extends Job {
-   
   public void doJob() {
-   JPAPlugin.startTx(false);
+    JPAPlugin.startTx(false);
 
     // Uzun sürecek bir işin 1.parçası yapılıyor ...
 
-   JPAPlugin.closeTx(false);
-   JPAPlugin.startTx(false); 
+    JPAPlugin.closeTx(false);
+    JPAPlugin.startTx(false);
 
     // Uzun sürecek bir işin 2.parçası yapılıyor ...
 
-   JPAPlugin.closeTx(false);
+    JPAPlugin.closeTx(false);
   }
 }
-
 ----
 
 Asenkron İşler
@@ -255,10 +276,9 @@ Asenkron İşler
 [source,java]
 ----
 public static void computeSomething() {
-
- Promise<String> delayedResult = veryLongComputation(…);
- String result = await(delayedResult);
- render(result);
+  Promise<String> delayedResult = veryLongComputation(...);
+  String result = await(delayedResult);
+  render(result);
 }
 ----
 
@@ -266,7 +286,7 @@ Asenkron İşler
 --------------
 * HTTP Response Streaming
 [source,java]
-----    
+----
 
 public static void generateLargeCSV() {
   CSVGenerator generator = new CSVGenerator();
@@ -282,27 +302,26 @@ Asenkron İşler
 --------------
 * WebSocket
 [source,java]
-----    
+----
 public class MyWebSocket extends WebSocketController {
- 
- public static void echo() {
-     while(inbound.isOpen()) {
-        WebSocketEvent e = await(inbound.nextEvent());
-        if(e instanceof WebSocketFrame) {
-              WebSocketFrame frame = (WebSocketFrame)e;
-              if(!e.isBinary) {
-                 if(frame.textData.equals("quit")) {
-                     outbound.send("Bye!");
-                     disconnect();
-                 } else {
-                     outbound.send("Echo: %s", frame.textData);
-                 }
-              }
+  public static void echo() {
+    while(inbound.isOpen()) {
+      WebSocketEvent e = await(inbound.nextEvent());
+      if(e instanceof WebSocketFrame) {
+        WebSocketFrame frame = (WebSocketFrame)e;
+        if(!e.isBinary) {
+          if(frame.textData.equals("quit")) {
+            outbound.send("Bye!");
+            disconnect();
+          } else {
+            outbound.send("Echo: %s", frame.textData);
+          }
         }
-        if(e instanceof WebSocketClose) {
-            Logger.info("Socket closed!");
-        }
-     }
+      }
+      if(e instanceof WebSocketClose) {
+        Logger.info("Socket closed!");
+      }
+    }
   }
 }
 ----
@@ -317,28 +336,30 @@ public class Mails extends Mailer {
 
   public static void sendStats(String title, List<Stat> statList,
                                List<User> userList) {
-     setSubject(title);
-     for(User user : userList) {
-       addRecipient(user.displayName() + " <" + user.email + ">");
-     }
-     setFrom("admin <admin@4primes.com>");             
-     setCharset("UTF-8");          
-     send(title,istatistikListesi);
-  } 
-}   
+    setSubject(title);
+    for(User user : userList) {
+      addRecipient(user.displayName() + " <" + user.email + ">");
+    }
+    setFrom("admin <admin@4primes.com>");
+    setCharset("UTF-8");
+    send(title,istatistikListesi);
+  }
+}
 ----
 
+E-mail Gönderimi
+--------------
 * SMTP Ayarları / *application.conf*
 ** mail.smtp.host    = smtp.googlemail.com
 ** mail.smtp.user    = admin@4primes.com
 ** mail.smtp.pass    = parola
-** mail.smtp.channel = ssl 
+** mail.smtp.channel = ssl
 
 E-mail Gönderimi
 --------------
-* HTML Şablon 
+* HTML Şablon
 ** *sendStats.html* || *sendStats.txt*
-** Template motoru tarafından oluşturulacak mail şablonlarını app/views/Mails/ altında yaratmalıyız 
+** Template motoru tarafından oluşturulacak mail şablonlarını app/views/Mails/ altında yaratmalıyız
 
 [source,html]
 ----
@@ -346,20 +367,20 @@ E-mail Gönderimi
  <head>
      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
  </head>
- <body> 
+ <body>
  <div>
   ${title}
  </div>
  <div>
   #{list stat:statList, as:'stat'}
    <div>
-    <p>  
+    <p>
      <span > İstatistik Adı : </span> ${stat.name}
      <span > Değeri : </span> ${stat.value}
-    </p>             
+    </p>
    </div>
-  #{/list}      
- </div>   
+  #{/list}
+ </div>
  </body>
 </html>
 ----
@@ -370,7 +391,7 @@ Testler
 * JUnit
 ** Unit testler
 ** Fonksiyonel testler
-* Selenium 
+* Selenium
 
 
 JUnit Testleri
@@ -378,30 +399,27 @@ JUnit Testleri
 * Unit Test
 [source,java]
 ----
-public class MyTest extends UnitTest {  
- 
-   @Test
-   public void testUsers() {
-       assertEquals(3, Users.count()); 
-   }
+public class MyTest extends UnitTest {
+  @Test
+  public void testUsers() {
+    assertEquals(3, Users.count());
+  }
 }
 ----
 * Fonksiyonel Test
 [source,java]
 ----
 public class ApplicationTest extends FunctionalTest {
-     
-   @Test
-   public void testTheHomePage() {
-       Response response = GET("/");
-       assertStatus(200, response);
-   }
+  @Test
+  public void testTheHomePage() {
+    Response response = GET("/");
+    assertStatus(200, response);
+  }
 
-   @Test
-   public void forumCreationIsRestricted() {
-       assertStatus(403, POST("/forums"));
-   }
- 
+  @Test
+  public void forumCreationIsRestricted() {
+    assertStatus(403, POST("/forums"));
+  }
 }
 ----
 
@@ -411,28 +429,27 @@ Selenium Testleri
 ----
 #{fixture delete:'all', load:'data.yml' /}
 
-#{selenium 'Kayıt Test'} 
-   clearSession()
-   
-   // Login sayfasını aç,
-   open('/login')
-          
-   // Kayıt ol bağlantısını aç
-   clickAndWait('signUpLink')
-   assertTextPresent('Create account')
+#{selenium 'Kayıt Test'}
+  clearSession()
 
-   // Validation 
+  // Login sayfasını aç,
+  open('/login')
 
-   // Kullanıcı ismi daha önce alınmış
-   type('registerUsername', 'gurkavcu')
-   type('registerPassword', 'test123')
-   type('registerPasswordRetype', 'test123')
-   type('registerEmail', 'umut.gurkavcu@4primes.com')
-   type('registerFullName', 'Umut Fikret Gürkavcu')
-   clickAndWait('registerSubmit')
-   assertTextPresent('This username has already been taken')
+  // Kayıt ol bağlantısını aç
+  clickAndWait('signUpLink')
+  assertTextPresent('Create account')
 
- ...  
+  // Validation
+
+  // Kullanıcı ismi daha önce alınmış
+  type('registerUsername', 'gurkavcu')
+  type('registerPassword', 'test123')
+  type('registerPasswordRetype', 'test123')
+  type('registerEmail', 'umut.gurkavcu@4primes.com')
+  type('registerFullName', 'Umut Fikret Gürkavcu')
+  clickAndWait('registerSubmit')
+  assertTextPresent('This username has already been taken')
+  ...
 
 #{/selenium}
 ----
@@ -468,7 +485,7 @@ Play Libs
 *  F
 *  Files
 *  I18N
-*  IO 
+*  IO
 *  Images
 *  MimeTypes
 *  OAuth
@@ -482,7 +499,7 @@ Play Libs
 Play Libs
 ----------
 
-* Images 
+* Images
   - Images.crop(File orig,File to, int x1, int y1, int x2, int y2)
   - Images.resize(File orig, File to, int w, int h)
   - Images.toBase64(File image)

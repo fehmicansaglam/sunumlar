@@ -5,7 +5,7 @@
 <title>Play Framework</title>
 <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
 <meta name="copyright" content="Copyright &#169; 4Primes" />
-<meta name="generator" content="AsciiDoc 8.6.8" />
+<meta name="generator" content="AsciiDoc 8.6.7" />
 <style type="text/css">
 /* Shared CSS for AsciiDoc xhtml11 and html5 backends */
 
@@ -88,14 +88,10 @@ ul, ol, li > p {
 ul > li     { color: #aaa; }
 ul > li > * { color: black; }
 
-.monospaced, code, pre {
-  font-family: "Courier New", Courier, monospace;
-  font-size: inherit;
-  color: navy;
+pre {
   padding: 0;
   margin: 0;
 }
-
 
 #author {
   color: #527bbd;
@@ -420,6 +416,12 @@ div.unbreakable { page-break-inside: avoid; }
  *
  * */
 
+tt {
+  font-family: "Courier New", Courier, monospace;
+  font-size: inherit;
+  color: navy;
+}
+
 div.tableblock {
   margin-top: 1.0em;
   margin-bottom: 1.5em;
@@ -452,6 +454,12 @@ div.tableblock > table[frame="vsides"] {
  * html5 specific
  *
  * */
+
+.monospaced {
+  font-family: "Courier New", Courier, monospace;
+  font-size: inherit;
+  color: navy;
+}
 
 table.tableblock {
   margin-top: 1.0em;
@@ -977,7 +985,6 @@ li {
   margin-top: 0.5em;
   margin-bottom: 0.5em;
 }
-
 /*
   pygmentize filter
 */
@@ -1043,7 +1050,6 @@ li {
 .highlight .vg { color: #B8860B } /* Name.Variable.Global */
 .highlight .vi { color: #B8860B } /* Name.Variable.Instance */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
-
 
 </style>
 <script type="text/javascript">
@@ -3943,12 +3949,128 @@ setTimeout(w3c_slidy.hide_slides, 50);
 <div class="sectionbody" style="max-width:45em">
 <div class="listingblock">
 <div class="content">
-<pre><code>http://www.kaynakca.info</code></pre>
+<pre><tt>http://www.kaynakca.info</tt></pre>
 </div></div>
 <div class="listingblock">
 <div class="content">
-<pre><code>http://www.4biryanda.com</code></pre>
+<pre><tt>http://www.4biryanda.com</tt></pre>
 </div></div>
+</div>
+</div>
+<div class="sect1 slide">
+<h1 id="_genel_bakış">Genel Bakış</h1>
+<div class="sectionbody" style="max-width:45em">
+<div class="paragraph"><p>Play framework karmaşık Kurumsal Java çatılarına temiz bir alternatif olma iddiasıyla ortaya çıkmıştır. Geliştirici verimliliğine odaklanır ve RESTful mimarileri hedef alır. Ayrıca çevik yazılım geliştirme ile tam uyumludur.</p></div>
+<div class="paragraph"><p>Play Framework'ün hedefi Java&#8217;yı terk etmeden web uygulama geliştirmeyi kolaylaştırmaktır.</p></div>
+</div>
+</div>
+<div class="sect1 slide">
+<h1 id="_tarihçe">Tarihçe</h1>
+<div class="sectionbody" style="max-width:45em">
+<div class="tableblock">
+<table rules="rows"
+width="100%"
+frame="border"
+cellspacing="0" cellpadding="4">
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+<thead>
+<tr>
+<th align="left" valign="top">Sürüm            </th>
+<th align="left" valign="top">Tarih       </th>
+<th align="left" valign="top">Boyut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p class="table">play-1.0.zip</p></td>
+<td align="left" valign="top"><p class="table">19 Eki 2009</p></td>
+<td align="left" valign="top"><p class="table">41.5M</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">play-1.0.1.zip</p></td>
+<td align="left" valign="top"><p class="table">17 Oca 2010</p></td>
+<td align="left" valign="top"><p class="table">44.6M</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">play-1.0.2.zip</p></td>
+<td align="left" valign="top"><p class="table">06 Nis 2010</p></td>
+<td align="left" valign="top"><p class="table">32.8M</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">play-1.0.2.1.zip</p></td>
+<td align="left" valign="top"><p class="table">16 Nis 2010</p></td>
+<td align="left" valign="top"><p class="table">32.8M</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">play-1.0.3.zip</p></td>
+<td align="left" valign="top"><p class="table">16 Haz 2010</p></td>
+<td align="left" valign="top"><p class="table">32.8M</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">play-1.0.3.1.zip</p></td>
+<td align="left" valign="top"><p class="table">15 Tem 2010</p></td>
+<td align="left" valign="top"><p class="table">32.8M</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">play-1.0.3.2.zip</p></td>
+<td align="left" valign="top"><p class="table">28 Tem 2010</p></td>
+<td align="left" valign="top"><p class="table">32.9M</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">play-1.1.zip</p></td>
+<td align="left" valign="top"><p class="table">01 Kas 2010</p></td>
+<td align="left" valign="top"><p class="table">48.1M</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">play-1.1.1.zip</p></td>
+<td align="left" valign="top"><p class="table">25 Oca 2011</p></td>
+<td align="left" valign="top"><p class="table">48.3M</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">play-1.2.zip</p></td>
+<td align="left" valign="top"><p class="table">13 Nis 2011</p></td>
+<td align="left" valign="top"><p class="table">55.7M</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">play-1.2.1.zip</p></td>
+<td align="left" valign="top"><p class="table">02 May 2011</p></td>
+<td align="left" valign="top"><p class="table">55.7M</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">play-1.2.2.zip</p></td>
+<td align="left" valign="top"><p class="table">05 Tem 2011</p></td>
+<td align="left" valign="top"><p class="table">57.6M</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">play-1.0.3.3.zip</p></td>
+<td align="left" valign="top"><p class="table">23 Ağu 2011</p></td>
+<td align="left" valign="top"><p class="table">32.8M</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">play-1.1.2.zip</p></td>
+<td align="left" valign="top"><p class="table">23 Ağu 2011</p></td>
+<td align="left" valign="top"><p class="table">48.3M</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">play-1.2.3.zip</p></td>
+<td align="left" valign="top"><p class="table">24 Ağu 2011</p></td>
+<td align="left" valign="top"><p class="table">58.2M</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">play-1.2.4.zip</p></td>
+<td align="left" valign="top"><p class="table">02 Ara 2011</p></td>
+<td align="left" valign="top"><p class="table">58.1M</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">play-1.2.5.zip</p></td>
+<td align="left" valign="top"><p class="table">03 Tem 2012</p></td>
+<td align="left" valign="top"><p class="table">61.7M</p></td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 <div class="sect1 slide">
@@ -4028,7 +4150,7 @@ Servlet API eski moda "her istek için bir thread" yapısını kullanıyor. Gün
 <ul class="">
 <li>
 <span>
-Jboss Netty kullanılıyor.
+Jboss Netty kullanılıyor. (1.2.5 içinde 3.4.2 var)
 </span>
 </li>
 <li>
@@ -4038,7 +4160,7 @@ Netty bir NIO client server framework.
 </li>
 <li>
 <span>
-NIO Java 1.4 ile geldi. Ölçeklenebilir sunucular için non-blocking I/O özellikleri içeriyor .
+NIO Java 1.4 ile geldi. Ölçeklenebilir sunucular için non-blocking I/O özellikleri içeriyor.
 </span>
 </li>
 </ul>
@@ -4086,13 +4208,13 @@ NIO Java 1.4 ile geldi. Ölçeklenebilir sunucular için non-blocking I/O özell
 <div class="sectionbody" style="max-width:45em">
 <div class="listingblock">
 <div class="content">
-<pre><code>application.mode=dev
-%prod.application.mode=prod</code></pre>
+<pre><tt>application.mode=dev
+%prod.application.mode=prod</tt></pre>
 </div></div>
 <div class="listingblock">
 <div class="content">
-<pre><code>db=fs
-%prod.db=mysql:user:pwd@database_name</code></pre>
+<pre><tt>db=fs
+%prod.db=mysql:user:pwd@database_name</tt></pre>
 </div></div>
 </div>
 </div>
@@ -6629,20 +6751,20 @@ AAAAQND/1+0IdIX4AQDgBwCAHwAAfgAA+AEAcJYAAwC20alu3YfRywAAAABJRU5ErkJggg==" />
 <div class="sectionbody" style="max-width:45em">
 <div class="listingblock">
 <div class="content">
-<pre><code>GET    /client/{id}             Clients.show
-POST   /client/?                Clients.save</code></pre>
+<pre><tt>GET    /client/{id}             Clients.show
+POST   /client/?                Clients.save</tt></pre>
 </div></div>
 <div class="listingblock">
 <div class="content">
-<pre><code>/clients/{id}/accounts/{accountId}</code></pre>
+<pre><tt>/clients/{id}/accounts/{accountId}</tt></pre>
 </div></div>
 <div class="listingblock">
 <div class="content">
-<pre><code>/clients/{&lt;[0-9]+&gt;id}</code></pre>
+<pre><tt>/clients/{&lt;[0-9]+&gt;id}</tt></pre>
 </div></div>
 <div class="listingblock">
 <div class="content">
-<pre><code>/clients/{&lt;[a-z]{4,10}&gt;id}</code></pre>
+<pre><tt>/clients/{&lt;[a-z]{4,10}&gt;id}</tt></pre>
 </div></div>
 </div>
 </div>
@@ -6699,9 +6821,9 @@ Varsayılan olarak Groovy tabanlı template motoru kullanılıyor.
 </span>
 <div class="listingblock">
 <div class="content">
-<pre><code>Expressions: ${…}
+<pre><tt>Expressions: ${…}
 Actions: @{…} or @@{…}
-Messages: &amp;{…}</code></pre>
+Messages: &amp;{…}</tt></pre>
 </div></div>
 </li>
 <li>
@@ -6710,13 +6832,13 @@ Java extensions
 </span>
 <div class="listingblock">
 <div class="content">
-<pre><code>${new Date(1262350000000).since(false)}
-5 months ago</code></pre>
+<pre><tt>${new Date(1262350000000).since(false)}
+5 months ago</tt></pre>
 </div></div>
 <div class="listingblock">
 <div class="content">
-<pre><code>${new Date(1262350000000).since(true)}
-Jan 1, 2010</code></pre>
+<pre><tt>${new Date(1262350000000).since(true)}
+Jan 1, 2010</tt></pre>
 </div></div>
 </li>
 </ul>
@@ -6735,13 +6857,11 @@ Başlangıç koşullarını oluşturabilmek için gereken işler
 <div class="listingblock">
 <div class="content"><div class="highlight"><pre><span class="nd">@OnApplicationStart</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">Bootstrap</span> <span class="kd">extends</span> <span class="n">Job</span> <span class="o">{</span>
-
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">doJob</span><span class="o">()</span> <span class="o">{</span>
-
- <span class="n">Logger</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">&quot;Ön tanımlı kullanıcılar oluşturuluyor ...&quot;</span><span class="o">);</span>
-  <span class="n">Fixtures</span><span class="o">.</span><span class="na">loadModels</span><span class="o">(</span><span class="s">&quot;data.yml&quot;</span><span class="o">);</span>
-  <span class="o">...</span>
- <span class="o">}</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">doJob</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">Logger</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">&quot;Ön tanımlı kullanıcılar oluşturuluyor ...&quot;</span><span class="o">);</span>
+    <span class="n">Fixtures</span><span class="o">.</span><span class="na">loadModels</span><span class="o">(</span><span class="s">&quot;data.yml&quot;</span><span class="o">);</span>
+    <span class="o">...</span>
+  <span class="o">}</span>
 <span class="o">}</span>
 </pre></div></div></div>
 </div>
@@ -6760,12 +6880,10 @@ Bakım amaçlı çalıştırılması gereken işler
 <div class="content"><div class="highlight"><pre><span class="c1">// Her ayın son günü</span>
 <span class="nd">@On</span><span class="o">(</span><span class="s">&quot;0 15 10 L * ?&quot;</span><span class="o">)</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">Maintenance</span> <span class="kd">extends</span> <span class="n">Job</span> <span class="o">{</span>
-
- <span class="kd">public</span> <span class="kt">void</span> <span class="nf">doJob</span><span class="o">()</span> <span class="o">{</span>
-
-  <span class="n">Logger</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">&quot;Re-index başlıyor ...&quot;</span><span class="o">);</span>
-  <span class="o">...</span>
- <span class="o">}</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">doJob</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">Logger</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">&quot;Re-index başlıyor ...&quot;</span><span class="o">);</span>
+    <span class="o">...</span>
+  <span class="o">}</span>
 <span class="o">}</span>
 </pre></div></div></div>
 </div>
@@ -6784,14 +6902,12 @@ Periyodik olarak yapılması gereken işler
 <div class="content"><div class="highlight"><pre><span class="c1">// Saatte bir kez</span>
 <span class="nd">@Every</span><span class="o">(</span><span class="s">&quot;1h&quot;</span><span class="o">)</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">WelcomeMail</span> <span class="kd">extends</span> <span class="n">Job</span> <span class="o">{</span>
-
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">doJob</span><span class="o">()</span> <span class="o">{</span>
-
-        <span class="n">List</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">newUsers</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="na">find</span><span class="o">(</span><span class="s">&quot;newAccount = true&quot;</span><span class="o">).</span><span class="na">fetch</span><span class="o">();</span>
-        <span class="k">for</span><span class="o">(</span><span class="n">User</span> <span class="n">user</span> <span class="o">:</span> <span class="n">newUsers</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">Notifier</span><span class="o">.</span><span class="na">sayWelcome</span><span class="o">(</span><span class="n">user</span><span class="o">);</span>
-        <span class="o">}</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">doJob</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">newUsers</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="na">find</span><span class="o">(</span><span class="s">&quot;newAccount = true&quot;</span><span class="o">).</span><span class="na">fetch</span><span class="o">();</span>
+    <span class="k">for</span><span class="o">(</span><span class="n">User</span> <span class="n">user</span> <span class="o">:</span> <span class="n">newUsers</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">Notifier</span><span class="o">.</span><span class="na">sayWelcome</span><span class="o">(</span><span class="n">user</span><span class="o">);</span>
     <span class="o">}</span>
+  <span class="o">}</span>
 <span class="o">}</span>
 </pre></div></div></div>
 </div>
@@ -6802,7 +6918,7 @@ Periyodik olarak yapılması gereken işler
 <ul class="">
 <li>
 <span>
-Transaction yönetimi
+Manual transaction yönetimi
 </span>
 </li>
 </ul>
@@ -6810,18 +6926,17 @@ Transaction yönetimi
 <div class="content"><div class="highlight"><pre><span class="nd">@OnApplicationStart</span><span class="o">(</span><span class="n">async</span> <span class="o">=</span> <span class="kc">true</span><span class="o">)</span>
 <span class="nd">@NoTransaction</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">Bootstrap</span> <span class="kd">extends</span> <span class="n">Job</span> <span class="o">{</span>
-
   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">doJob</span><span class="o">()</span> <span class="o">{</span>
-   <span class="n">JPAPlugin</span><span class="o">.</span><span class="na">startTx</span><span class="o">(</span><span class="kc">false</span><span class="o">);</span>
+    <span class="n">JPAPlugin</span><span class="o">.</span><span class="na">startTx</span><span class="o">(</span><span class="kc">false</span><span class="o">);</span>
 
     <span class="c1">// Uzun sürecek bir işin 1.parçası yapılıyor ...</span>
 
-   <span class="n">JPAPlugin</span><span class="o">.</span><span class="na">closeTx</span><span class="o">(</span><span class="kc">false</span><span class="o">);</span>
-   <span class="n">JPAPlugin</span><span class="o">.</span><span class="na">startTx</span><span class="o">(</span><span class="kc">false</span><span class="o">);</span>
+    <span class="n">JPAPlugin</span><span class="o">.</span><span class="na">closeTx</span><span class="o">(</span><span class="kc">false</span><span class="o">);</span>
+    <span class="n">JPAPlugin</span><span class="o">.</span><span class="na">startTx</span><span class="o">(</span><span class="kc">false</span><span class="o">);</span>
 
     <span class="c1">// Uzun sürecek bir işin 2.parçası yapılıyor ...</span>
 
-   <span class="n">JPAPlugin</span><span class="o">.</span><span class="na">closeTx</span><span class="o">(</span><span class="kc">false</span><span class="o">);</span>
+    <span class="n">JPAPlugin</span><span class="o">.</span><span class="na">closeTx</span><span class="o">(</span><span class="kc">false</span><span class="o">);</span>
   <span class="o">}</span>
 <span class="o">}</span>
 </pre></div></div></div>
@@ -6839,10 +6954,9 @@ Request sırasında yapılması gereken ancak uzun sürdüğü için requesti bl
 </ul>
 <div class="listingblock">
 <div class="content"><div class="highlight"><pre><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">computeSomething</span><span class="o">()</span> <span class="o">{</span>
-
- <span class="n">Promise</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">delayedResult</span> <span class="o">=</span> <span class="n">veryLongComputation</span><span class="o">(</span><span class="err">…</span><span class="o">);</span>
- <span class="n">String</span> <span class="n">result</span> <span class="o">=</span> <span class="n">await</span><span class="o">(</span><span class="n">delayedResult</span><span class="o">);</span>
- <span class="n">render</span><span class="o">(</span><span class="n">result</span><span class="o">);</span>
+  <span class="n">Promise</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">delayedResult</span> <span class="o">=</span> <span class="n">veryLongComputation</span><span class="o">(...);</span>
+  <span class="n">String</span> <span class="n">result</span> <span class="o">=</span> <span class="n">await</span><span class="o">(</span><span class="n">delayedResult</span><span class="o">);</span>
+  <span class="n">render</span><span class="o">(</span><span class="n">result</span><span class="o">);</span>
 <span class="o">}</span>
 </pre></div></div></div>
 </div>
@@ -6881,25 +6995,24 @@ WebSocket
 </ul>
 <div class="listingblock">
 <div class="content"><div class="highlight"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyWebSocket</span> <span class="kd">extends</span> <span class="n">WebSocketController</span> <span class="o">{</span>
-
- <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">echo</span><span class="o">()</span> <span class="o">{</span>
-     <span class="k">while</span><span class="o">(</span><span class="n">inbound</span><span class="o">.</span><span class="na">isOpen</span><span class="o">())</span> <span class="o">{</span>
-        <span class="n">WebSocketEvent</span> <span class="n">e</span> <span class="o">=</span> <span class="n">await</span><span class="o">(</span><span class="n">inbound</span><span class="o">.</span><span class="na">nextEvent</span><span class="o">());</span>
-        <span class="k">if</span><span class="o">(</span><span class="n">e</span> <span class="k">instanceof</span> <span class="n">WebSocketFrame</span><span class="o">)</span> <span class="o">{</span>
-              <span class="n">WebSocketFrame</span> <span class="n">frame</span> <span class="o">=</span> <span class="o">(</span><span class="n">WebSocketFrame</span><span class="o">)</span><span class="n">e</span><span class="o">;</span>
-              <span class="k">if</span><span class="o">(!</span><span class="n">e</span><span class="o">.</span><span class="na">isBinary</span><span class="o">)</span> <span class="o">{</span>
-                 <span class="k">if</span><span class="o">(</span><span class="n">frame</span><span class="o">.</span><span class="na">textData</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s">&quot;quit&quot;</span><span class="o">))</span> <span class="o">{</span>
-                     <span class="n">outbound</span><span class="o">.</span><span class="na">send</span><span class="o">(</span><span class="s">&quot;Bye!&quot;</span><span class="o">);</span>
-                     <span class="n">disconnect</span><span class="o">();</span>
-                 <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-                     <span class="n">outbound</span><span class="o">.</span><span class="na">send</span><span class="o">(</span><span class="s">&quot;Echo: %s&quot;</span><span class="o">,</span> <span class="n">frame</span><span class="o">.</span><span class="na">textData</span><span class="o">);</span>
-                 <span class="o">}</span>
-              <span class="o">}</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">echo</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">while</span><span class="o">(</span><span class="n">inbound</span><span class="o">.</span><span class="na">isOpen</span><span class="o">())</span> <span class="o">{</span>
+      <span class="n">WebSocketEvent</span> <span class="n">e</span> <span class="o">=</span> <span class="n">await</span><span class="o">(</span><span class="n">inbound</span><span class="o">.</span><span class="na">nextEvent</span><span class="o">());</span>
+      <span class="k">if</span><span class="o">(</span><span class="n">e</span> <span class="k">instanceof</span> <span class="n">WebSocketFrame</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">WebSocketFrame</span> <span class="n">frame</span> <span class="o">=</span> <span class="o">(</span><span class="n">WebSocketFrame</span><span class="o">)</span><span class="n">e</span><span class="o">;</span>
+        <span class="k">if</span><span class="o">(!</span><span class="n">e</span><span class="o">.</span><span class="na">isBinary</span><span class="o">)</span> <span class="o">{</span>
+          <span class="k">if</span><span class="o">(</span><span class="n">frame</span><span class="o">.</span><span class="na">textData</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s">&quot;quit&quot;</span><span class="o">))</span> <span class="o">{</span>
+            <span class="n">outbound</span><span class="o">.</span><span class="na">send</span><span class="o">(</span><span class="s">&quot;Bye!&quot;</span><span class="o">);</span>
+            <span class="n">disconnect</span><span class="o">();</span>
+          <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+            <span class="n">outbound</span><span class="o">.</span><span class="na">send</span><span class="o">(</span><span class="s">&quot;Echo: %s&quot;</span><span class="o">,</span> <span class="n">frame</span><span class="o">.</span><span class="na">textData</span><span class="o">);</span>
+          <span class="o">}</span>
         <span class="o">}</span>
-        <span class="k">if</span><span class="o">(</span><span class="n">e</span> <span class="k">instanceof</span> <span class="n">WebSocketClose</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">Logger</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">&quot;Socket closed!&quot;</span><span class="o">);</span>
-        <span class="o">}</span>
-     <span class="o">}</span>
+      <span class="o">}</span>
+      <span class="k">if</span><span class="o">(</span><span class="n">e</span> <span class="k">instanceof</span> <span class="n">WebSocketClose</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">Logger</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">&quot;Socket closed!&quot;</span><span class="o">);</span>
+      <span class="o">}</span>
+    <span class="o">}</span>
   <span class="o">}</span>
 <span class="o">}</span>
 </pre></div></div></div>
@@ -6915,16 +7028,21 @@ WebSocket
 
   <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">sendStats</span><span class="o">(</span><span class="n">String</span> <span class="n">title</span><span class="o">,</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Stat</span><span class="o">&gt;</span> <span class="n">statList</span><span class="o">,</span>
                                <span class="n">List</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">userList</span><span class="o">)</span> <span class="o">{</span>
-     <span class="n">setSubject</span><span class="o">(</span><span class="n">title</span><span class="o">);</span>
-     <span class="k">for</span><span class="o">(</span><span class="n">User</span> <span class="n">user</span> <span class="o">:</span> <span class="n">userList</span><span class="o">)</span> <span class="o">{</span>
-       <span class="n">addRecipient</span><span class="o">(</span><span class="n">user</span><span class="o">.</span><span class="na">displayName</span><span class="o">()</span> <span class="o">+</span> <span class="s">&quot; &lt;&quot;</span> <span class="o">+</span> <span class="n">user</span><span class="o">.</span><span class="na">email</span> <span class="o">+</span> <span class="s">&quot;&gt;&quot;</span><span class="o">);</span>
-     <span class="o">}</span>
-     <span class="n">setFrom</span><span class="o">(</span><span class="s">&quot;admin &lt;admin@4primes.com&gt;&quot;</span><span class="o">);</span>
-     <span class="n">setCharset</span><span class="o">(</span><span class="s">&quot;UTF-8&quot;</span><span class="o">);</span>
-     <span class="n">send</span><span class="o">(</span><span class="n">title</span><span class="o">,</span><span class="n">istatistikListesi</span><span class="o">);</span>
+    <span class="n">setSubject</span><span class="o">(</span><span class="n">title</span><span class="o">);</span>
+    <span class="k">for</span><span class="o">(</span><span class="n">User</span> <span class="n">user</span> <span class="o">:</span> <span class="n">userList</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">addRecipient</span><span class="o">(</span><span class="n">user</span><span class="o">.</span><span class="na">displayName</span><span class="o">()</span> <span class="o">+</span> <span class="s">&quot; &lt;&quot;</span> <span class="o">+</span> <span class="n">user</span><span class="o">.</span><span class="na">email</span> <span class="o">+</span> <span class="s">&quot;&gt;&quot;</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="n">setFrom</span><span class="o">(</span><span class="s">&quot;admin &lt;admin@4primes.com&gt;&quot;</span><span class="o">);</span>
+    <span class="n">setCharset</span><span class="o">(</span><span class="s">&quot;UTF-8&quot;</span><span class="o">);</span>
+    <span class="n">send</span><span class="o">(</span><span class="n">title</span><span class="o">,</span><span class="n">istatistikListesi</span><span class="o">);</span>
   <span class="o">}</span>
 <span class="o">}</span>
 </pre></div></div></div>
+</div>
+</div>
+<div class="sect1 slide">
+<h1 id="_e_mail_gönderimi_2">E-mail Gönderimi</h1>
+<div class="sectionbody" style="max-width:45em">
 <ul class="">
 <li>
 <span>
@@ -6957,7 +7075,7 @@ mail.smtp.channel = ssl
 </div>
 </div>
 <div class="sect1 slide">
-<h1 id="_e_mail_gönderimi_2">E-mail Gönderimi</h1>
+<h1 id="_e_mail_gönderimi_3">E-mail Gönderimi</h1>
 <div class="sectionbody" style="max-width:45em">
 <ul class="">
 <li>
@@ -7043,11 +7161,10 @@ Unit Test
 </ul>
 <div class="listingblock">
 <div class="content"><div class="highlight"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyTest</span> <span class="kd">extends</span> <span class="n">UnitTest</span> <span class="o">{</span>
-
-   <span class="nd">@Test</span>
-   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">testUsers</span><span class="o">()</span> <span class="o">{</span>
-       <span class="n">assertEquals</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span> <span class="n">Users</span><span class="o">.</span><span class="na">count</span><span class="o">());</span>
-   <span class="o">}</span>
+  <span class="nd">@Test</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">testUsers</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">assertEquals</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span> <span class="n">Users</span><span class="o">.</span><span class="na">count</span><span class="o">());</span>
+  <span class="o">}</span>
 <span class="o">}</span>
 </pre></div></div></div>
 <ul class="">
@@ -7059,18 +7176,16 @@ Fonksiyonel Test
 </ul>
 <div class="listingblock">
 <div class="content"><div class="highlight"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ApplicationTest</span> <span class="kd">extends</span> <span class="n">FunctionalTest</span> <span class="o">{</span>
+  <span class="nd">@Test</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">testTheHomePage</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">Response</span> <span class="n">response</span> <span class="o">=</span> <span class="n">GET</span><span class="o">(</span><span class="s">&quot;/&quot;</span><span class="o">);</span>
+    <span class="n">assertStatus</span><span class="o">(</span><span class="mi">200</span><span class="o">,</span> <span class="n">response</span><span class="o">);</span>
+  <span class="o">}</span>
 
-   <span class="nd">@Test</span>
-   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">testTheHomePage</span><span class="o">()</span> <span class="o">{</span>
-       <span class="n">Response</span> <span class="n">response</span> <span class="o">=</span> <span class="n">GET</span><span class="o">(</span><span class="s">&quot;/&quot;</span><span class="o">);</span>
-       <span class="n">assertStatus</span><span class="o">(</span><span class="mi">200</span><span class="o">,</span> <span class="n">response</span><span class="o">);</span>
-   <span class="o">}</span>
-
-   <span class="nd">@Test</span>
-   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">forumCreationIsRestricted</span><span class="o">()</span> <span class="o">{</span>
-       <span class="n">assertStatus</span><span class="o">(</span><span class="mi">403</span><span class="o">,</span> <span class="n">POST</span><span class="o">(</span><span class="s">&quot;/forums&quot;</span><span class="o">));</span>
-   <span class="o">}</span>
-
+  <span class="nd">@Test</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">forumCreationIsRestricted</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">assertStatus</span><span class="o">(</span><span class="mi">403</span><span class="o">,</span> <span class="n">POST</span><span class="o">(</span><span class="s">&quot;/forums&quot;</span><span class="o">));</span>
+  <span class="o">}</span>
 <span class="o">}</span>
 </pre></div></div></div>
 </div>
@@ -7080,32 +7195,31 @@ Fonksiyonel Test
 <div class="sectionbody" style="max-width:45em">
 <div class="listingblock">
 <div class="content">
-<pre><code>#{fixture delete:'all', load:'data.yml' /}
+<pre><tt>#{fixture delete:'all', load:'data.yml' /}
 
 #{selenium 'Kayıt Test'}
-   clearSession()
+  clearSession()
 
-   // Login sayfasını aç,
-   open('/login')
+  // Login sayfasını aç,
+  open('/login')
 
-   // Kayıt ol bağlantısını aç
-   clickAndWait('signUpLink')
-   assertTextPresent('Create account')
+  // Kayıt ol bağlantısını aç
+  clickAndWait('signUpLink')
+  assertTextPresent('Create account')
 
-   // Validation
+  // Validation
 
-   // Kullanıcı ismi daha önce alınmış
-   type('registerUsername', 'gurkavcu')
-   type('registerPassword', 'test123')
-   type('registerPasswordRetype', 'test123')
-   type('registerEmail', 'umut.gurkavcu@4primes.com')
-   type('registerFullName', 'Umut Fikret Gürkavcu')
-   clickAndWait('registerSubmit')
-   assertTextPresent('This username has already been taken')
+  // Kullanıcı ismi daha önce alınmış
+  type('registerUsername', 'gurkavcu')
+  type('registerPassword', 'test123')
+  type('registerPasswordRetype', 'test123')
+  type('registerEmail', 'umut.gurkavcu@4primes.com')
+  type('registerFullName', 'Umut Fikret Gürkavcu')
+  clickAndWait('registerSubmit')
+  assertTextPresent('This username has already been taken')
+  ...
 
- ...
-
-#{/selenium}</code></pre>
+#{/selenium}</tt></pre>
 </div></div>
 </div>
 </div>
