@@ -5,7 +5,7 @@
 <title>Play Framework</title>
 <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
 <meta name="copyright" content="Copyright &#169; 4Primes" />
-<meta name="generator" content="AsciiDoc 8.6.7" />
+<meta name="generator" content="AsciiDoc 8.6.8" />
 <style type="text/css">
 /* Shared CSS for AsciiDoc xhtml11 and html5 backends */
 
@@ -88,10 +88,14 @@ ul, ol, li > p {
 ul > li     { color: #aaa; }
 ul > li > * { color: black; }
 
-pre {
+.monospaced, code, pre {
+  font-family: "Courier New", Courier, monospace;
+  font-size: inherit;
+  color: navy;
   padding: 0;
   margin: 0;
 }
+
 
 #author {
   color: #527bbd;
@@ -416,12 +420,6 @@ div.unbreakable { page-break-inside: avoid; }
  *
  * */
 
-tt {
-  font-family: "Courier New", Courier, monospace;
-  font-size: inherit;
-  color: navy;
-}
-
 div.tableblock {
   margin-top: 1.0em;
   margin-bottom: 1.5em;
@@ -454,12 +452,6 @@ div.tableblock > table[frame="vsides"] {
  * html5 specific
  *
  * */
-
-.monospaced {
-  font-family: "Courier New", Courier, monospace;
-  font-size: inherit;
-  color: navy;
-}
 
 table.tableblock {
   margin-top: 1.0em;
@@ -985,6 +977,7 @@ li {
   margin-top: 0.5em;
   margin-bottom: 0.5em;
 }
+
 /*
   pygmentize filter
 */
@@ -1050,6 +1043,7 @@ li {
 .highlight .vg { color: #B8860B } /* Name.Variable.Global */
 .highlight .vi { color: #B8860B } /* Name.Variable.Instance */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
+
 
 </style>
 <script type="text/javascript">
@@ -3949,11 +3943,11 @@ setTimeout(w3c_slidy.hide_slides, 50);
 <div class="sectionbody" style="max-width:45em">
 <div class="listingblock">
 <div class="content">
-<pre><tt>http://www.kaynakca.info</tt></pre>
+<pre><code>http://www.kaynakca.info</code></pre>
 </div></div>
 <div class="listingblock">
 <div class="content">
-<pre><tt>http://www.4biryanda.com</tt></pre>
+<pre><code>http://www.4biryanda.com</code></pre>
 </div></div>
 </div>
 </div>
@@ -4208,13 +4202,13 @@ NIO Java 1.4 ile geldi. Ölçeklenebilir sunucular için non-blocking I/O özell
 <div class="sectionbody" style="max-width:45em">
 <div class="listingblock">
 <div class="content">
-<pre><tt>application.mode=dev
-%prod.application.mode=prod</tt></pre>
+<pre><code>application.mode=dev
+%prod.application.mode=prod</code></pre>
 </div></div>
 <div class="listingblock">
 <div class="content">
-<pre><tt>db=fs
-%prod.db=mysql:user:pwd@database_name</tt></pre>
+<pre><code>db=fs
+%prod.db=mysql:user:pwd@database_name</code></pre>
 </div></div>
 </div>
 </div>
@@ -4257,7 +4251,8 @@ Geliştirdiğimiz modül
 <ul class="">
 <li>
 <span>
-Model, uygulamanın işlem yaptığı bilginin domain-specific olarak gösterimidir. Domain logic ham veriye anlam katar(Model metodları).
+Model, uygulamanın işlem yaptığı bilginin domain-specific olarak gösterimidir. Domain logic ham veriye anlam katar(Model metodları).<br />
+  <a href="http://fehmicansaglam.net/hastalikli-alan-modeli/">http://fehmicansaglam.net/hastalikli-alan-modeli/</a>
 </span>
 </li>
 <li>
@@ -6751,20 +6746,20 @@ AAAAQND/1+0IdIX4AQDgBwCAHwAAfgAA+AEAcJYAAwC20alu3YfRywAAAABJRU5ErkJggg==" />
 <div class="sectionbody" style="max-width:45em">
 <div class="listingblock">
 <div class="content">
-<pre><tt>GET    /client/{id}             Clients.show
-POST   /client/?                Clients.save</tt></pre>
+<pre><code>GET    /client/{id}             Clients.show
+POST   /client/?                Clients.save</code></pre>
 </div></div>
 <div class="listingblock">
 <div class="content">
-<pre><tt>/clients/{id}/accounts/{accountId}</tt></pre>
+<pre><code>/clients/{id}/accounts/{accountId}</code></pre>
 </div></div>
 <div class="listingblock">
 <div class="content">
-<pre><tt>/clients/{&lt;[0-9]+&gt;id}</tt></pre>
+<pre><code>/clients/{&lt;[0-9]+&gt;id}</code></pre>
 </div></div>
 <div class="listingblock">
 <div class="content">
-<pre><tt>/clients/{&lt;[a-z]{4,10}&gt;id}</tt></pre>
+<pre><code>/clients/{&lt;[a-z]{4,10}&gt;id}</code></pre>
 </div></div>
 </div>
 </div>
@@ -6821,9 +6816,9 @@ Varsayılan olarak Groovy tabanlı template motoru kullanılıyor.
 </span>
 <div class="listingblock">
 <div class="content">
-<pre><tt>Expressions: ${…}
+<pre><code>Expressions: ${…}
 Actions: @{…} or @@{…}
-Messages: &amp;{…}</tt></pre>
+Messages: &amp;{…}</code></pre>
 </div></div>
 </li>
 <li>
@@ -6832,13 +6827,13 @@ Java extensions
 </span>
 <div class="listingblock">
 <div class="content">
-<pre><tt>${new Date(1262350000000).since(false)}
-5 months ago</tt></pre>
+<pre><code>${new Date(1262350000000).since(false)}
+5 months ago</code></pre>
 </div></div>
 <div class="listingblock">
 <div class="content">
-<pre><tt>${new Date(1262350000000).since(true)}
-Jan 1, 2010</tt></pre>
+<pre><code>${new Date(1262350000000).since(true)}
+Jan 1, 2010</code></pre>
 </div></div>
 </li>
 </ul>
@@ -7195,7 +7190,7 @@ Fonksiyonel Test
 <div class="sectionbody" style="max-width:45em">
 <div class="listingblock">
 <div class="content">
-<pre><tt>#{fixture delete:'all', load:'data.yml' /}
+<pre><code>#{fixture delete:'all', load:'data.yml' /}
 
 #{selenium 'Kayıt Test'}
   clearSession()
@@ -7219,7 +7214,7 @@ Fonksiyonel Test
   assertTextPresent('This username has already been taken')
   ...
 
-#{/selenium}</tt></pre>
+#{/selenium}</code></pre>
 </div></div>
 </div>
 </div>

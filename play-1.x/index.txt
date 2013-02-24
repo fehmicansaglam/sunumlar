@@ -108,7 +108,8 @@ Apache Ivy kullanılıyor.
 
 MVC
 ---
-- Model, uygulamanın işlem yaptığı bilginin domain-specific olarak gösterimidir. Domain logic ham veriye anlam katar(Model metodları).
+- Model, uygulamanın işlem yaptığı bilginin domain-specific olarak gösterimidir. Domain logic ham veriye anlam katar(Model metodları). +
+  http://fehmicansaglam.net/hastalikli-alan-modeli/
 - View, modeli ihtiyaca uygun bir formata dönüştürür. Web uygulamalarında bu formatlar genelde HTML, XML ya da JSON olmaktadır.
 - Controller, olaylara tepki verir, onları işler ve gerekirse model üzerinde değişiklik yapacak metodları çağırır. Web uygulamasında olaylar HTTP istekleridir.
 
