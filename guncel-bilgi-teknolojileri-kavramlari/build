@@ -1,4 +1,4 @@
-for dosya in `ls *.txt`
+for dosya in `ls *.asc`
 do
 	asciidoc $dosya
 done
