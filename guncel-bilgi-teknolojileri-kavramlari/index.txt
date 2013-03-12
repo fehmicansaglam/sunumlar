@@ -1,0 +1,15 @@
+Güncel Bilgi Teknolojileri Kavramları
+=====================================
+:toc2:
+:icons:
+:iconsdir: /usr/local/etc/asciidoc/images/icons/
+:data-uri:
+:pygments:
+:encoding: UTF-8
+:numbered:
+
+.Fehmi Can Sağlam
+* http://twitter.com/fehmicansaglam
+* http://github.com/fehmicansaglam
+* http://fehmicansaglam.net
+
