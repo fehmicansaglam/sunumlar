@@ -1,0 +1,4 @@
+for dosya in `ls *.asc`
+do
+	asciidoc $dosya
+done
