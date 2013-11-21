@@ -1,0 +1,88 @@
+Reactive Manifesto
+==================
+:author: Fehmi Can Sağlam
+:toc2:
+:icons:
+:iconsdir: /usr/local/etc/asciidoc/images/icons/
+:data-uri:
+:pygments:
+:encoding: UTF-8
+:backend: slidy
+:max-width: 45em
+
+Fehmi Can Sağlam
+----------------
+* http://twitter.com/fehmicansaglam
+* http://github.com/fehmicansaglam
+* http://fehmicansaglam.net
+* Yaptigim sunumlarin slaytlari Github hesabimda bulunuyor.
+
+Kaynakça
+--------
+* http://www.reactivemanifesto.org/
+* http://www.typesafe.com/blog/why_do_we_need_a_reactive_manifesto%3F
+* http://pchiusano.blogspot.com/2013/11/the-reactive-manifesto-is-not-even-wrong.html
+* http://sadache.tumblr.com/post/42351000773/async-reactive-nonblocking-threads-futures-executioncont[Playframework: Async, Reactive, Threads, Futures, ExecutionContexts]
+
+Neden?
+------
+* Uygulama gereksinimleri son yıllarda dramatik ölçüde değişti.
+* Çok çekirdekli işlemciler ve bulut bilisim günümüzün standartları haline geldi.
+* Kullanıcılar daha hızlı ve her zaman yanıt verebilen, ölçeklenebilir uygulamalara ihtiyaç duyuyorlar.
+* Bu gelişmeler uygulamaların artik farklı yöntemlerle geliştirilmesini gerektiriyor.
+
+Amac
+----
+* Soz konusu uygulamalara Reactive Uygulamalar adını veriyoruz.
+* Reactive mimari geliştiricilerin olay tabanlı, ölçeklenebilir, çabuk iyileşen ve hızlı tepki veren sistemler geliştirebilmesini sağlıyor.
+* Hemen her platform kendi cozumunu ve jargonunu uretmis durumda.
+* Reactive Manifesto ise bu yöntemler için ortak bir dil tanımlama amacı güdüyor.
+* Bu nedenle Reactive Manifesto yalnizca ilkelerden ibaret.
+
+Olay surulen(Event driven)
+--------------------------
+* Asenkron haberlesme uzerine kurulu uygulamalar cok daha kolay loosely coupled tasarlanabilir.
+* Gonderici ve alici birbirinden bagimsiz gelistirilebilir.
+* Alici bir olay olusana kadar hareketsiz durdugundan cok sayida alici tek bir hardware threadini paylasabilir.
+* Yapitaslari
+** Asenkron haberlesme (message passing)
+** Non-blocking
+** Gelistirmenin baslangicindan itibaren her katmanda reactive
+
+Olceklenebilir(Scalable)
+------------------------
+* Ihtiyaca gore scale out ve scale in
+* Ihtiyaca gore scale up ve scale down
+* Yapitaslari
+** Event driven
+** Konumsal seffaflik (Location transparency)
+
+Cabuk iyilesen(Resilient)
+-------------------------
+* Hatalar birinci sinif vatandastir.
+* Baslagictan itibaren tasarimin icindedirler.
+* Yapitaslari
+** Hatalarin izolasyonu
+** Event driven
+** Bilesen hiyerarsisi sayesinde hata ile en uygun yerde bas edilmesi
+
+Tepki veren(Responsive)
+-----------------------
+* Yapitaslari
+
+Nasil?
+------
+* Hemen her platform kendi araclarini sunuyor.
+* Typesafe Stack ile
+** Scala
+** Akka
+** Play Framework
+** ReactiveMongo(Zenexity tarafindan gelistiriliyor)
+** Spray(akka-http adini alarak Akka ailesine katilacak)
+
+Tesekkurler
+-----------
+* http://twitter.com/fehmicansaglam
+* http://github.com/fehmicansaglam
+* http://fehmicansaglam.net
+* Yaptigim sunumlarin slaytlari Github hesabimda bulunuyor.
