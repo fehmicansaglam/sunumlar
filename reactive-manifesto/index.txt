@@ -68,7 +68,12 @@ Cabuk iyilesen(Resilient)
 
 Tepki veren(Responsive)
 -----------------------
+* Gercek zamanli etkilesim
+* Dusuk gecikme
 * Yapitaslari
+** Observable models
+** Event streams
+** Stateful clients
 
 Nasil?
 ------
@@ -79,6 +84,11 @@ Nasil?
 ** Play Framework
 ** ReactiveMongo(Zenexity tarafindan gelistiriliyor)
 ** Spray(akka-http adini alarak Akka ailesine katilacak)
+
+Muhalif gorusler
+----------------
+* http://pchiusano.blogspot.com/2013/11/the-reactive-manifesto-is-not-even-wrong.html
+* Cok genel, yeni bir sey sunmuyor, hatta hicbir sey sunmuyor.
 
 Tesekkurler
 -----------
