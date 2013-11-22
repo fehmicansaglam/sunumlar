@@ -15,7 +15,7 @@ Fehmi Can Sağlam
 * http://twitter.com/fehmicansaglam
 * http://github.com/fehmicansaglam
 * http://fehmicansaglam.net
-* Yaptigim sunumlarin slaytlari Github hesabimda bulunuyor.
+* Yaptığım sunumların slaytları Github hesabımda bulunuyor.
 
 Kaynakça
 --------
@@ -27,72 +27,72 @@ Kaynakça
 Neden?
 ------
 * Uygulama gereksinimleri son yıllarda dramatik ölçüde değişti.
-* Çok çekirdekli işlemciler ve bulut bilisim günümüzün standartları haline geldi.
+* Çok çekirdekli işlemciler ve bulut bilişim günümüzün standartları haline geldi.
 * Kullanıcılar daha hızlı ve her zaman yanıt verebilen, ölçeklenebilir uygulamalara ihtiyaç duyuyorlar.
-* Bu gelişmeler uygulamaların artik farklı yöntemlerle geliştirilmesini gerektiriyor.
+* Bu gelişmeler uygulamaların artık farklı yöntemlerle geliştirilmesini gerektiriyor.
 
-Amac
+Amaç
 ----
-* Soz konusu uygulamalara Reactive Uygulamalar adını veriyoruz.
+* Söz konusu uygulamalara Reactive Uygulamalar adını veriyoruz.
 * Reactive mimari geliştiricilerin olay tabanlı, ölçeklenebilir, çabuk iyileşen ve hızlı tepki veren sistemler geliştirebilmesini sağlıyor.
-* Hemen her platform kendi cozumunu ve jargonunu uretmis durumda.
+* Hemen her platform kendi çözümünü ve jargonunu üretmiş durumda.
 * Reactive Manifesto ise bu yöntemler için ortak bir dil tanımlama amacı güdüyor.
-* Bu nedenle Reactive Manifesto yalnizca ilkelerden ibaret.
+* Bu nedenle Reactive Manifesto yalnızca ilkelerden ibaret.
 
-Olay surulen(Event driven)
---------------------------
-* Asenkron haberlesme uzerine kurulu uygulamalar cok daha kolay loosely coupled tasarlanabilir.
-* Gonderici ve alici birbirinden bagimsiz gelistirilebilir.
-* Alici bir olay olusana kadar hareketsiz durdugundan cok sayida alici tek bir hardware threadini paylasabilir.
-* Yapitaslari
-** Asenkron haberlesme (message passing)
+Olay sürülen (Event driven)
+---------------------------
+* Asenkron haberleşme üzerine kurulu uygulamalar çok daha kolay "loosely coupled" tasarlanabilir.
+* Gönderici ve alıcı birbirinden bağımsız geliştirilebilir.
+* Alıcı bir olay oluşana kadar hareketsiz durduğundan çok sayıda alıcı tek bir hardware thread'ini paylaşabilir.
+* Yapıtaşları
+** Asenkron haberleşme (message passing)
 ** Non-blocking
-** Gelistirmenin baslangicindan itibaren her katmanda reactive
+** Geliştirmenin başlangıcından itibaren her katmanda reactive
 
-Olceklenebilir(Scalable)
-------------------------
-* Ihtiyaca gore scale out ve scale in
-* Ihtiyaca gore scale up ve scale down
-* Yapitaslari
-** Event driven
-** Konumsal seffaflik (Location transparency)
-
-Cabuk iyilesen(Resilient)
+Ölçeklenebilir (Scalable)
 -------------------------
-* Hatalar birinci sinif vatandastir.
-* Baslagictan itibaren tasarimin icindedirler.
-* Yapitaslari
-** Hatalarin izolasyonu
-** Event driven
-** Bilesen hiyerarsisi sayesinde hata ile en uygun yerde bas edilmesi
+* İhtiyaca göre scale out ya da scale in
+* İhtiyaca göre scale up ya da scale down
+* Yapıtaşları
+** Olay sürülen
+** Konumsal şeffaflık (Location transparency)
 
-Tepki veren(Responsive)
------------------------
-* Gercek zamanli etkilesim
-* Dusuk gecikme
-* Yapitaslari
+Çabuk iyileşen (Resilient)
+--------------------------
+* Hatalar birinci sınıf vatandaştır.
+* Başlangıçtan itibaren tasarımın içindedirler.
+* Yapıtaşları
+** Olay sürülen
+** Hataların izolasyonu
+** Bileşen hiyerarşisi sayesinde hata ile en uygun yerde baş edilmesi
+
+Tepki veren (Responsive)
+------------------------
+* Gerçek zamanlı etkileşim
+* Düşük gecikme
+* Yapıtaşları
 ** Observable models
 ** Event streams
 ** Stateful clients
 
-Nasil?
+Nasıl?
 ------
-* Hemen her platform kendi araclarini sunuyor.
+* Çoğu platform kendi araçlarını sunuyor.
 * Typesafe Stack ile
 ** Scala
 ** Akka
 ** Play Framework
-** ReactiveMongo(Zenexity tarafindan gelistiriliyor)
-** Spray(akka-http adini alarak Akka ailesine katilacak)
+** ReactiveMongo (Zenexity tarafından geliştiriliyor)
+** Spray (akka-http adını alarak Akka ailesine katılacak)
 
-Muhalif gorusler
+Muhalif görüşler
 ----------------
 * http://pchiusano.blogspot.com/2013/11/the-reactive-manifesto-is-not-even-wrong.html
-* Cok genel, yeni bir sey sunmuyor, hatta hicbir sey sunmuyor.
+* Çok genel, yeni bir şey sunmuyor, hatta hiçbir şey sunmuyor.
 
-Tesekkurler
+Teşekkürler
 -----------
 * http://twitter.com/fehmicansaglam
 * http://github.com/fehmicansaglam
 * http://fehmicansaglam.net
-* Yaptigim sunumlarin slaytlari Github hesabimda bulunuyor.
+* Yaptığım sunumların slaytları Github hesabımda bulunuyor.
